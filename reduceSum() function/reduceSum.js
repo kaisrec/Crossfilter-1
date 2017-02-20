@@ -1,4 +1,5 @@
-// Loading some dummy data
+// Loaing dummy data
+
 var data = [
   {date: "2011-11-14T16:17:54Z", quantity: 2, total: 190, tip: 100, type: "tab"},
   {date: "2011-11-14T16:20:19Z", quantity: 2, total: 190, tip: 100, type: "tab"},
@@ -14,18 +15,27 @@ var data = [
   {date: "2011-11-14T17:29:52Z", quantity: 1, total: 200, tip: 100, type: "visa"}
 ];
 
-//take a peek at the data in the console of your browser
-
-console.log(data);
-var facts = crossfilter(data); // the first command to run on a dataset in order to apply corssfilter methods
-console.log("Data after crossfilter function is applied.");
-console.log(facts);
-
-console.log("The length of the dataset is,",facts.size()); // returns the size/length of the dataset. It is a measure.
-
-/*
-In order to add new data:
-var newData = [{}]; // added an object with no "data" out of laziness.
-facts.add(newData);
-console.log(facts.size()); it should return 13
+/* What if we wanted to find the sum of "quantity", "total" or "tip" from the above dataset?
+we shall see how reduceSum() does the job but first we have to apply the crossfilter() function on the dataset
 */
+
+var facts = crossfilter(data);
+
+// sum of "tip" field
+var tipSum = facts.groupAll()
+                    .reduceSum(function(d){return d.tip;})
+                    .value();
+console.log("Sum of tips is "+tipSum);
+
+// sum of "quantity" field
+var quantitySum = facts.groupAll()
+                        .reduceSum(function(d){return d.quantity;})
+                        .value();
+
+console.log("Sum of quantity is "+quantitySum);
+
+var totalSum = facts.groupAll()
+                        .reduceSum(function(d){return d.total;})
+                        .value();
+
+console.log("The sum of total is "+totalSum);

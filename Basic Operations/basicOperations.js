@@ -17,7 +17,10 @@ var data = [
 //take a peek at the data in the console of your browser
 
 console.log(data);
-var facts = crossfilter(data); // the first command to run on a dataset in order to apply corssfilter methods
+
+// applying crossfilter() function on our data
+var facts = crossfilter(data);
+
 console.log("Data after crossfilter function is applied.");
 console.log(facts);
 

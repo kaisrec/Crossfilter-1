@@ -36,7 +36,7 @@ var dateDimension = facts.dimension(function(d){return d.date;});
 var typeGroup = typeDimension.group();
 
 /*
-When you run *.group(), you are by default running *group(function(d){return d;})
+When you run *.group(), you are by default running *.group(function(d){return d;})
 */
 var ridiculousGroup = typeDimension.group(function(d){return d.substring(0,1);}); // grouping on the first character
 console.log(ridiculousGroup.all());

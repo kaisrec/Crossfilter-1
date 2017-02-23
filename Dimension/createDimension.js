@@ -31,11 +31,12 @@ console.log(typeDimension.top(3));
  console.log(typeDimension.top(Infinity));
  will return all the rows
 
- in order to index from taht we can use:
+ in order to index from that we can use:
  console.log(typeDimension.top(Infinity)[0]);
 
- what if we wanted that date from the above indexed data?
- console.log(typeDimension.top(Infinity)[0].date);
+ what if we wanted the date from the above indexed data?
+ console.log(typeDimension.top(Infinity)[0].date);  // returns the highest date value
+ console.log(typeDimension.top(Infinity)[1].date);  // returns the second highest date value
 
  */
 
